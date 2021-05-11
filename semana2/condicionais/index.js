@@ -38,6 +38,23 @@ if(idadeUsuario >= 18) {
 
 const estudo = () => {
     const turnoEstudo = prompt("Qual o turno do dia você estuda? M(Matutino), V(Vespertino) ou N(Noturno)?")
+    
+    if (turnoEstudo === "M") {
+        return "Bom dia!"
+    } else if (turnoEstudo === "V") {
+        return "Boa tarde!"
+    } else if (turnoEstudo === "N") {
+        return "Boa noite!"
+    }
+}    
+
+console.log(estudo())
+
+
+// EXERCÍCIO 3
+
+const estudo = () => {
+    const turnoEstudo = prompt("Qual o turno do dia você estuda? M(Matutino), V(Vespertino) ou N(Noturno)?")
     switch(turnoEstudo) {
         case "M":
             console.log("Bom dia!")
@@ -51,19 +68,19 @@ const estudo = () => {
 }
 
 estudo()
-
-
-const estudo = () => {
-    const turnoEstudo = prompt("Qual o turno do dia você estuda? M(Matutino), V(Vespertino) ou N(Noturno)?")
-    
-    if (turnoEstudo === "M") {
-        return "Bom dia!"
-    } else if (turnoEstudo === "V") {
-        return "Boa tarde!"
-    } else if (turnoEstudo === "N") {
-        return "Boa noite!"
-    }
-}    
-
-console.log(estudo())
 */
+
+// EXERCÍCIO 4
+
+const assistirFilme = () => {
+    const generoFilme = prompt("Qual o gênero de filme você vai assistir?")
+    const precoIngresso = Number(prompt("Qual o preço do ingresso?"))
+
+    if(generoFilme === "fantasia" && precoIngresso <= 15) {
+        console.log("Bom filme!")
+    } else {
+        console.log("Escolha outro filme :(")
+    }
+}
+
+assistirFilme()
