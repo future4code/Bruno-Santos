@@ -21,7 +21,7 @@
 // EXERCÍCIO 1
 
 // A)
-
+/*
 const pessoa = {
     nome: "Bruno",
     apelidos: ["A", "B", "C"]
@@ -39,33 +39,38 @@ const novaPessoa = {
     apelidos: ["D", "E", "F"] 
 }
 nomeApelidos(novaPessoa)
-
+*/
 // EXERCÍCIO 2
 
 const objeto1 = {
     nome: "Bruno",
     idade: 29,
-    profissão: "estudante"
+    profissao: "estudante"
 }
 
 const objeto2 = {
     nome: "Lucas",
     idade: 23,
-    profissão: "dev"
+    profissao: "dev"
 }
 
-function minhaFuncao (objeto1, objeto2) {
-    ...objeto1,
-    ...objeto2,
-    
-
+function minhaFuncao (pessoa) {
+    return [
+        pessoa.nome,
+        pessoa.nome.length,
+        pessoa.idade,
+        pessoa.profissao,
+        pessoa.profissao.length
+    ]
 }
 
+console.log(minhaFuncao(objeto1))
+console.log(minhaFuncao(objeto2))
 
 
 // EXERCÍCIO 3
 
-let carrinho = []
+const carrinho = []
 
 const fruta1 = {
     nome: "Banana",
@@ -82,9 +87,15 @@ const fruta3 = {
     disponibilidade: true
 }
 
-function recebeCarrinho (compra) {
-    const adiciona = carrinho.push(compra)
-    return 
+function recebeCarrinho (fruta) {
+    carrinho.push(fruta)
 }
+
+recebeCarrinho(fruta1)
+recebeCarrinho(fruta2)
+recebeCarrinho(fruta3)
+
+console.log(carrinho)
+
 /*
 */
