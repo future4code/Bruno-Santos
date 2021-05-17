@@ -1,4 +1,24 @@
+
+function minhaFuncao(array) {
+    const novoArray = array.map((numero, index, array) => {
+        return numero * index
+    })
+    return novoArray
+}
+
+console.log(minhaFuncao([124, 780, 20]))
+
 /* 
+const nome = "Bruno" 
+const sobrenome = "Moreira Santos"
+const idade = "29"
+const estudante = false
+
+// console.log("Meu nome é", nome, sobrenome, ", tenho", idade, "anos, e sou", estudante, "!!")
+
+console.log(estudante)
+
+
 
 1 - 
 
@@ -58,7 +78,7 @@ console.log(pergunta1, "-", resposta1)
 console.log(pergunta2, "-", resposta2)
 console.log(pergunta3, "-", resposta3)
 
-*/
+
 
 // 3 -
 
@@ -73,5 +93,5 @@ b = c // b = 10
 console.log("a", a)
 console.log("b", b)
 
-
+*/
 
