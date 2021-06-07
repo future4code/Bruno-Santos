@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import CardGrande from './components/CardGrande/CardGrande';
-import ImagemButton from './components/ImagemButton/ImagemButton';
 import CardPequeno from './components/CardPequeno/CardPequeno';
+import ImagemButton from './components/ImagemButton/ImagemButton';
 
 function App() {
   return (
@@ -10,9 +10,9 @@ function App() {
       <div className="page-section-container">
         <h2>Dados pessoais</h2>
         <CardGrande 
-          imagem="./MinhaFoto/MinhaFoto.jpeg" 
-          nome="Astrodev" 
-          descricao="Oi, eu sou o Bruno."
+          imagem="https://uploads-ssl.webflow.com/5d640f4558306be99cf47a0e/5dd57846babb597b77c6bb1d_PerfilFuture4_cor.png" 
+          nome="Bruno" 
+          descricao="Oi, eu sou o Bruno e estudo programação na Labenu."
         />
         
         <ImagemButton 
@@ -22,30 +22,22 @@ function App() {
       </div>
 
       <div className="page-section-container">
-
-      <h2>Contato</h2>
-        <CardPequeno
-          descricao="E-mail: bruno@dev.com.br"
-        />
-
-        <CardPequeno
-          descricao="Endereço: Rua da alegria, 55."
-        />
-      </div>
-
-      <div className="page-section-container">
         <h2>Experiências profissionais</h2>
         <CardGrande 
           imagem="https://s3.amazonaws.com/future4.com.br/static/headf4-c492117ca2373dc85ca81bf715b3dc2a.png" 
           nome="Labenu" 
-          descricao="Estou cursando Webfullstack na Labenu, no período diurno." 
+          descricao="Formando desenvolvedores para o mercado de trabalho!" 
         />
         
         <CardGrande 
           imagem="https://imagens.canaltech.com.br/empresas/4418.400.jpg" 
           nome="NASA" 
-          descricao="Por enquanto, na parte Frontend. Aprendendo muito JS, HTML, CSS e agora React." 
+          descricao="Apontando defeitos." 
         />
+      </div>
+
+      <div>
+        <CardPequeno email={"Bruno@bruno.com"} endereco={"Rua da Alegria, 50"}/>
       </div>
 
       <div className="page-section-container">
@@ -60,7 +52,6 @@ function App() {
           texto="Twitter" 
         />        
       </div>
-
     </div>
   );
 }
