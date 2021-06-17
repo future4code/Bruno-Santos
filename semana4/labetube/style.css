@@ -26,6 +26,10 @@ header {
     column-gap: 10px;
     margin: 20px;
     
+<<<<<<< HEAD
+    
+=======
+>>>>>>> master
 }
 
 .card-video {
@@ -46,4 +50,16 @@ footer {
     align-items: center;
     background-color: grey;
     height: 60px;
+<<<<<<< HEAD
 }
+
+@media screen and (max-width: 768px) {
+    .main-index {
+        width: 100%;
+    }
+    
+}
+
+=======
+}
+>>>>>>> master
