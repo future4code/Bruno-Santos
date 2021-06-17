@@ -57,8 +57,11 @@ function App() {
 }
 
 export default App;
+<<<<<<< HEAD
+=======
 
 export const canVote = (currentYear, birthYear) => {
   const ageAtEndOfYear = currentYear - birthYear;
   return ageAtEndOfYear >= 18
   }
+>>>>>>> master
