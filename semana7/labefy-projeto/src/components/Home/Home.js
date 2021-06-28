@@ -6,7 +6,8 @@ import MusicaArea from "./MusicaArea/MusicaArea";
 const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
+  width: 75vw;
 `;
 
 export default class Home extends React.Component {

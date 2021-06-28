@@ -8,7 +8,8 @@ const MusicaAreaStyle = styled.div`
   background-color: #7fa559;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 75vh;
+  width: 75vw;
 `;
 
 const UlContainer = styled.ul`
@@ -16,6 +17,11 @@ const UlContainer = styled.ul`
   padding: 10px;
   list-style: none;
   width: 100%;
+`;
+
+const InputMusica = styled.input`
+  text-transform: uppercase;
+  width: 250px;
 `;
 
 const BotaoAdicionarMusica = styled.button`
@@ -31,6 +37,7 @@ export default class MusicaArea extends React.Component {
   render() {
     return (
       <MusicaAreaStyle>
+        <InputMusica placeholder={"Nome da música"} />
         <BotaoAdicionarMusica>Adicionar música</BotaoAdicionarMusica>
         <UlContainer>
           {this.props.playlistSelecionada.musicas.map((musica) => {

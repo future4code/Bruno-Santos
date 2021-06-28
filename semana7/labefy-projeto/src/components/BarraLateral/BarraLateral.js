@@ -7,11 +7,9 @@ const BarraLateralContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #669933;
-  align-content: center;
   align-items: center;
-  justify-items: center;
-  justify-content: center;
   width: 25vw;
+  height: 100vh;
 `;
 
 export default class BarraLateral extends React.Component {
@@ -19,10 +17,6 @@ export default class BarraLateral extends React.Component {
     return (
       <BarraLateralContainer>
         <Logo />
-        <h2>PLAYLISTS</h2>
-        <button>
-          <h3>CRIAR PLAYLIST</h3>
-        </button>
         <ListPlaylists
           playlists={this.props.playlists}
           trocarPlaylist={this.props.trocarPlaylist}

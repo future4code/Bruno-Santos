@@ -7,27 +7,59 @@ const PlaylistContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-content: center;
+  align-items: center;
   width: 22vw;
   padding: 20px;
+  height: 80vh;
+`;
+
+const InputPlaylist = styled.input`
+  width: 15vw;
+  text-transform: uppercase;
+`;
+
+const ButtonPlaylist = styled.button`
+  width: 10vw;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 `;
 
 const Row = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  flex-wrap: wrap;
   box-sizing: border-box;
   &:hover {
-    background-position: left bottom;
     color: black;
     border: none;
     box-shadow: 0 0 20px black;
+    background-color: #4c7226;
   }
 `;
 
 export default class ListPlaylists extends React.Component {
+  state = {
+    inputNameValue: "",
+  };
+
+  changeInputNameValue = (event) => {
+    this.setState({ inputNameValue: event.target.value });
+  };
+
+  createPlaylist = () => {};
+
   render() {
     return (
       <PlaylistContainer>
+        <h2>PLAYLISTS</h2>
+        <InputPlaylist
+          onSubmit={this.createPlaylist}
+          placeholder="Nome da Playlist"
+          type="text"
+          value={this.state.inputNameValue}
+          onChange={this.changeInputNameValue}
+        />
+        <ButtonPlaylist>Criar playlist</ButtonPlaylist>
         <Row>
           {this.props.playlists.map((playlist) => {
             return (
