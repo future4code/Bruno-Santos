@@ -1,37 +1,64 @@
 import React from "react";
 import styled from "styled-components";
+import axios from "axios";
+import { baseUrl, axiosConfig } from "../../../constants";
+import PlaylistCard from "./PlaylistCard";
 
 const PlaylistContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   align-content: center;
   width: 20vw;
-  height: 30px;
+  height: 40vh;
   margin: 5px;
   padding: 5px;
 `;
 
-const Deletar = styled.div`
-  font-size: 25px;
-`;
-
-const Nome = styled.div`
-  font-size: 25px;
-`;
-
 export default class Playlists extends React.Component {
+  state = {
+    playlists: [],
+  };
+
+  componentDidMount = () => {
+    this.pegaPlaylist();
+  };
+
+  pegaPlaylist = () => {
+    axios
+      .get(baseUrl, axiosConfig)
+      .then((response) => {
+        this.setState({ playlists: response.data.result.list });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  deletePlaylist = (playlistId) => {
+    axios
+      .delete(`${baseUrl}/${playlistId}`, axiosConfig)
+      .then((res) => {
+        this.pegaPlaylist();
+      })
+      .catch((err) => {
+        alert("Erro! Tente novamente!");
+      });
+  };
+
   render() {
-    return (
-      <PlaylistContainer>
-        <button
-          onClick={() => this.props.trocarPlaylist(this.props.playlist.id)}
-        >
-          <Nome>{this.props.playlist.nome}</Nome>
-        </button>
-        <Deletar>X</Deletar>
-      </PlaylistContainer>
-    );
+    const playlists = this.state.playlists.map((playlist) => {
+      return (
+        <PlaylistCard
+          key={playlist.id}
+          name={playlist.name}
+          playlistId={playlist.id}
+          deletePlaylist={this.deletePlaylist}
+        />
+      );
+    });
+
+    return <PlaylistContainer>{playlists}</PlaylistContainer>;
   }
 }

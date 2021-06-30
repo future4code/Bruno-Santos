@@ -17,10 +17,7 @@ export default class BarraLateral extends React.Component {
     return (
       <BarraLateralContainer>
         <Logo />
-        <ListPlaylists
-          playlists={this.props.playlists}
-          trocarPlaylist={this.props.trocarPlaylist}
-        />
+        <ListPlaylists />
       </BarraLateralContainer>
     );
   }

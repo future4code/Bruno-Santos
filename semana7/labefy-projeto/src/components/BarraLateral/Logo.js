@@ -6,6 +6,7 @@ const LogoStyle = styled.div`
   font-size: 20px;
   text-transform: uppercase;
   height: 20vh;
+  margin-bottom: 20px;
 `;
 
 export default class Logo extends React.Component {

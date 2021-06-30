@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import MusicasPlaylist from "./MusicasPlaylist";
 
 const MusicaAreaStyle = styled.div`
   display: flex;
@@ -12,16 +11,24 @@ const MusicaAreaStyle = styled.div`
   width: 75vw;
 `;
 
+const InputContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  width: 75vw;
+`;
+
 const UlContainer = styled.ul`
   margin: 0;
   padding: 10px;
   list-style: none;
   width: 100%;
+  height: 60vh;
 `;
 
 const InputMusica = styled.input`
   text-transform: uppercase;
-  width: 250px;
+  width: 200px;
 `;
 
 const BotaoAdicionarMusica = styled.button`
@@ -31,19 +38,33 @@ const BotaoAdicionarMusica = styled.button`
 
 export default class MusicaArea extends React.Component {
   state = {
-    musicasDaPlaylist: "",
+    tracks: [],
+    name: "",
+    artist: "",
+    url: "",
   };
 
   render() {
     return (
       <MusicaAreaStyle>
-        <InputMusica placeholder={"Nome da música"} />
-        <BotaoAdicionarMusica>Adicionar música</BotaoAdicionarMusica>
-        <UlContainer>
-          {this.props.playlistSelecionada.musicas.map((musica) => {
-            return <MusicasPlaylist nome={musica.titulo} />;
-          })}
-        </UlContainer>
+        <InputContainer>
+          <label>Nome da música:</label>
+          <InputMusica
+            placeholder="Nome da música"
+            name="trackname"
+            value={this.state.name}
+          />
+          <label>Artista:</label>
+          <InputMusica
+            placeholder="Nome do Artista"
+            name="artist"
+            value={this.state.artist}
+          />
+          <label>URL da música:</label>
+          <InputMusica placeholder="URL" name="url" value={this.state.url} />
+          <BotaoAdicionarMusica>Adicionar música</BotaoAdicionarMusica>
+        </InputContainer>
+        <UlContainer></UlContainer>
       </MusicaAreaStyle>
     );
   }

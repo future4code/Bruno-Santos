@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import axios from "axios";
+import { baseUrl, axiosConfig } from "../../../constants";
 import Playlist from "./Playlist";
 
 const PlaylistContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-content: center;
   align-items: center;
   width: 22vw;
@@ -15,13 +16,16 @@ const PlaylistContainer = styled.div`
 
 const InputPlaylist = styled.input`
   width: 15vw;
-  text-transform: uppercase;
 `;
 
 const ButtonPlaylist = styled.button`
   width: 10vw;
   margin-bottom: 20px;
-  text-transform: uppercase;
+`;
+
+const PlaylistCreationForm = styled.form`
+  display: flex;
+  flex-direction: column;
 `;
 
 const Row = styled.div`
@@ -46,29 +50,37 @@ export default class ListPlaylists extends React.Component {
     this.setState({ inputNameValue: event.target.value });
   };
 
-  createPlaylist = () => {};
+  createPlaylist = (event) => {
+    event.preventDefault();
+    const body = {
+      name: this.state.inputNameValue,
+    };
+    axios
+      .post(baseUrl, body, axiosConfig)
+      .then(() => {
+        alert("Playlist cadastrada com sucesso!");
+      })
+      .catch(() => {
+        alert("Erro! Tente novamente!");
+      });
+    this.setState({ inputNameValue: "" });
+  };
 
   render() {
     return (
       <PlaylistContainer>
         <h2>PLAYLISTS</h2>
-        <InputPlaylist
-          onSubmit={this.createPlaylist}
-          placeholder="Nome da Playlist"
-          type="text"
-          value={this.state.inputNameValue}
-          onChange={this.changeInputNameValue}
-        />
-        <ButtonPlaylist>Criar playlist</ButtonPlaylist>
+        <PlaylistCreationForm onSubmit={this.createPlaylist}>
+          <InputPlaylist
+            placeholder="Nome da Playlist"
+            type="text"
+            value={this.state.inputNameValue}
+            onChange={this.changeInputNameValue}
+          />
+          <ButtonPlaylist>Criar playlist</ButtonPlaylist>
+        </PlaylistCreationForm>
         <Row>
-          {this.props.playlists.map((playlist) => {
-            return (
-              <Playlist
-                trocarPlaylist={this.props.trocarPlaylist}
-                playlist={playlist}
-              />
-            );
-          })}
+          <Playlist />
         </Row>
       </PlaylistContainer>
     );
