@@ -55,6 +55,7 @@ export default class Playlists extends React.Component {
           name={playlist.name}
           playlistId={playlist.id}
           deletePlaylist={this.deletePlaylist}
+          pegaPlaylistId={this.props.pegaPlaylistId}
         />
       );
     });

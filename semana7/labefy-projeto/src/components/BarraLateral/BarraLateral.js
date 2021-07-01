@@ -17,7 +17,7 @@ export default class BarraLateral extends React.Component {
     return (
       <BarraLateralContainer>
         <Logo />
-        <ListPlaylists />
+        <ListPlaylists pegaPlaylistId={this.props.pegaPlaylistId} />
       </BarraLateralContainer>
     );
   }

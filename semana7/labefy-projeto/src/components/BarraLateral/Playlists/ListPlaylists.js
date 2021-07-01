@@ -33,6 +33,7 @@ const Row = styled.div`
   flex-direction: column;
   justify-content: space-around;
   box-sizing: border-box;
+  height: 60vh;
   &:hover {
     color: black;
     border: none;
@@ -80,7 +81,7 @@ export default class ListPlaylists extends React.Component {
           <ButtonPlaylist>Criar playlist</ButtonPlaylist>
         </PlaylistCreationForm>
         <Row>
-          <Playlist />
+          <Playlist pegaPlaylistId={this.props.pegaPlaylistId} />
         </Row>
       </PlaylistContainer>
     );

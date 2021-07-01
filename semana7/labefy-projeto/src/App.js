@@ -13,11 +13,19 @@ const AppContainer = styled.div`
 `;
 
 export default class App extends React.Component {
+  state = {
+    playlistId: "",
+  };
+
+  pegaPlaylistId = (playlistId) => {
+    this.setState({ playlistId: playlistId });
+  };
+
   render() {
     return (
       <AppContainer>
-        <BarraLateral />
-        <Home />
+        <BarraLateral pegaPlaylistId={this.pegaPlaylistId} />
+        <Home playlistId={this.state.playlistId} />
       </AppContainer>
     );
   }

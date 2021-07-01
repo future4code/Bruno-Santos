@@ -42,8 +42,14 @@ export default class MusicasPlaylist extends React.Component {
     return (
       <LiContainer>
         <Acontainer>
-          <Nome>{this.props.nome}</Nome>
-          <Deletar>X</Deletar>
+          <Nome>{this.props.trackName}</Nome>
+          <Deletar
+            onClick={() =>
+              this.props.removeTrackFromPlaylist(this.props.trackId)
+            }
+          >
+            X
+          </Deletar>
         </Acontainer>
       </LiContainer>
     );

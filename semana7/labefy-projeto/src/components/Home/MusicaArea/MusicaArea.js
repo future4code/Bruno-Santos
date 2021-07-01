@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import axios from "axios";
+import { baseUrl, axiosConfig } from "../../../constants";
+import MusicasPlaylist from "./MusicasPlaylist";
 
 const MusicaAreaStyle = styled.div`
   display: flex;
@@ -39,12 +42,83 @@ const BotaoAdicionarMusica = styled.button`
 export default class MusicaArea extends React.Component {
   state = {
     tracks: [],
-    name: "",
+    trackName: "",
     artist: "",
     url: "",
   };
 
+  componentDidMount = () => {
+    this.pegaTracks();
+  };
+
+  pegaTracks = () => {
+    axios
+      .get(`${baseUrl}/${this.props.playlistId}/tracks`, axiosConfig)
+      .then((response) => {
+        this.setState({ tracks: response.data.result.tracks });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  removeTrackFromPlaylist = (trackId) => {
+    axios
+      .delete(
+        `${baseUrl}/${this.props.playlistId}/tracks/${trackId}`,
+        axiosConfig
+      )
+      .then(() => {
+        this.pegaTracks();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  changeInputValues = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  addTrackToPlaylist = (event) => {
+    event.preventDefault();
+    const body = {
+      name: this.state.trackName,
+      artist: this.state.artist,
+      url: this.state.url,
+    };
+
+    axios
+      .post(`${baseUrl}/${this.props.playlistId}/tracks`, body, axiosConfig)
+      .then(() => {
+        this.pegaTracks();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    this.setState({
+      trackName: "",
+      artist: "",
+      url: "",
+    });
+  };
+
   render() {
+    console.log(this.props.playlistId);
+    const tracks = this.state.tracks.map((track) => {
+      return (
+        <MusicasPlaylist
+          key={track.id}
+          trackName={track.name}
+          artist={track.artist}
+          url={track.url}
+          trackId={track.id}
+          removeTrackFromPlaylist={this.removeTrackFromPlaylist}
+        />
+      );
+    });
+
     return (
       <MusicaAreaStyle>
         <InputContainer>
@@ -62,9 +136,11 @@ export default class MusicaArea extends React.Component {
           />
           <label>URL da música:</label>
           <InputMusica placeholder="URL" name="url" value={this.state.url} />
-          <BotaoAdicionarMusica>Adicionar música</BotaoAdicionarMusica>
+          <BotaoAdicionarMusica onSubmit={this.addTrackToPlaylist}>
+            Adicionar música
+          </BotaoAdicionarMusica>
         </InputContainer>
-        <UlContainer></UlContainer>
+        <UlContainer>{tracks}</UlContainer>
       </MusicaAreaStyle>
     );
   }

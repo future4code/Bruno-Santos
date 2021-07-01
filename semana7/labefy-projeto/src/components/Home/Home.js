@@ -18,8 +18,8 @@ export default class Home extends React.Component {
   render() {
     return (
       <HomeContainer>
-        <Header playlistSelecionada={this.props.playlistSelecionada} />
-        <MusicaArea playlistSelecionada={this.props.playlistSelecionada} />
+        <Header playlistId={this.props.playlistId} />
+        <MusicaArea playlistId={this.props.playlistId} />
       </HomeContainer>
     );
   }

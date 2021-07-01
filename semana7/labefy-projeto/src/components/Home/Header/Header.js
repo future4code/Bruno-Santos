@@ -14,7 +14,7 @@ export default class Header extends React.Component {
   render() {
     return (
       <HeaderContainer>
-        <h1>PLAYLIST - </h1>
+        <h1>PLAYLIST - {this.props.playlistId.name}</h1>
       </HeaderContainer>
     );
   }
