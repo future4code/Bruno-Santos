@@ -8,7 +8,7 @@ const BotaoMatchContainer = styled.div`
   width: 100%;
   justify-content: space-around;
   align-items: center;
-  border-top: solid;
+  background-color: #ccd9ff;
 `;
 
 const ButtonMatch = styled.button`
