@@ -1,47 +1,35 @@
-import React from "react";
-import styled from "styled-components";
-
-const HomeContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #e6ecff;
-`;
-
-const HeaderContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  height: 15%;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #ccd9ff;
-`;
-
-const TelaUsuarioContainer = styled.div`
-  display: flex;
-  height: 80%;
-  width: 90%;
-  justify-content: space-around;
-  align-items: center;
-  background-color: white;
-  border: solid;
-`;
+import React, { useEffect, useState } from "react";
+import { HomeContainer } from "./styled";
+import { HeaderContainer } from "./styled";
+import { TelaUsuarioContainer } from "./styled";
+import PerfilMatch from "./PerfilMatch/PerfilMatch";
+import axios from "axios";
+import { unstable_renderSubtreeIntoContainer } from "react-dom";
 
 function TelaUsuario(props) {
+  const [matches, setMatches] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/bruno/matches"
+      )
+      .then((res) => {
+        setMatches(res.data.matches);
+      });
+  }, []);
+
   return (
     <HomeContainer>
       <HeaderContainer>
-        <button>Resetar</button>
+        <button onClick={props.botaoResetar}>Resetar</button>
         <h2>ASTROMATCH</h2>
         <button onClick={() => props.mudaPagina("telaInicial")}>Voltar</button>
       </HeaderContainer>
       <TelaUsuarioContainer>
-        <div>FOTO</div>
-        <div>NOME</div>
+        {matches.map((perfil) => {
+          return <PerfilMatch perfil={perfil} />;
+        })}
       </TelaUsuarioContainer>
     </HomeContainer>
   );

@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const BotaoMatchContainer = styled.div`
@@ -16,11 +17,11 @@ const ButtonMatch = styled.button`
   width: 50px;
 `;
 
-function BotaoMatch() {
+function BotaoMatch(props) {
   return (
     <BotaoMatchContainer>
-      <ButtonMatch>X</ButtonMatch>
-      <ButtonMatch>❤</ButtonMatch>
+      <ButtonMatch onClick={props.noMatch}>X</ButtonMatch>
+      <ButtonMatch onClick={props.match}>❤</ButtonMatch>
     </BotaoMatchContainer>
   );
 }
