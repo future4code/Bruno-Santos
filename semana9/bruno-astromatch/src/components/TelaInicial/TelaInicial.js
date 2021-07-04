@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { HomeContainer } from "./styled";
 import { HeaderContainer } from "./styled";
 import { TelaInicialContainer } from "./styled";
+import { BotaoPersonalizado } from "./styled";
 import PerfilParaMatch from "./PerfilParaMatch/PerfilParaMatch";
 import BotaoMatch from "./BotaoMatch/BotaoMatch";
 import axios from "axios";
@@ -60,9 +61,13 @@ function TelaInicial(props) {
   return (
     <HomeContainer>
       <HeaderContainer>
-        <button onClick={props.botaoResetar}>Resetar</button>
+        <BotaoPersonalizado onClick={props.botaoResetar}>
+          Resetar
+        </BotaoPersonalizado>
         <h2>ASTROMATCH</h2>
-        <button onClick={() => props.mudaPagina("telaUsuario")}>Usuário</button>
+        <BotaoPersonalizado onClick={() => props.mudaPagina("telaUsuario")}>
+          Usuário
+        </BotaoPersonalizado>
       </HeaderContainer>
       <TelaInicialContainer>
         {perfil ? (

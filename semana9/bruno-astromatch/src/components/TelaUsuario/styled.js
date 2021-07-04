@@ -27,6 +27,7 @@ export const TelaUsuarioContainer = styled.div`
   width: 95%;
   align-items: center;
   background-color: white;
+  overflow: auto;
 `;
 
 export const CardUsuarioContainer = styled.div`
@@ -48,4 +49,20 @@ export const CardUsuarioImagem = styled.img`
   padding: 5px;
   margin-right: 10px;
   border-radius: 50%;
+`;
+
+export const BotaoPersonalizado = styled.button`
+  display: flex;
+  padding: 14px 20px;
+  color: black;
+  font-size: 15px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  height: 30px;
+  border-radius: 20px;
+  font-weight: bold;
+  background-color: #99b3ff;
+  position: relative;
 `;

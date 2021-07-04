@@ -50,3 +50,19 @@ export const CardInicialDescricao = styled.div`
   padding: 10px;
   margin-top: 5px;
 `;
+
+export const BotaoPersonalizado = styled.button`
+  display: flex;
+  padding: 14px 20px;
+  color: black;
+  font-size: 15px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  height: 30px;
+  border-radius: 20px;
+  font-weight: bold;
+  background-color: #99b3ff;
+  position: relative;
+`;

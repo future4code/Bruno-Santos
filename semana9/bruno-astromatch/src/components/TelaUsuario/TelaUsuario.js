@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { HomeContainer } from "./styled";
 import { HeaderContainer } from "./styled";
 import { TelaUsuarioContainer } from "./styled";
+import { BotaoPersonalizado } from "./styled";
 import PerfilMatch from "./PerfilMatch/PerfilMatch";
 import axios from "axios";
-import { unstable_renderSubtreeIntoContainer } from "react-dom";
 
 function TelaUsuario(props) {
   const [matches, setMatches] = useState([]);
@@ -22,9 +22,13 @@ function TelaUsuario(props) {
   return (
     <HomeContainer>
       <HeaderContainer>
-        <button onClick={props.botaoResetar}>Resetar</button>
+        <BotaoPersonalizado onClick={props.botaoResetar}>
+          Resetar
+        </BotaoPersonalizado>
         <h2>ASTROMATCH</h2>
-        <button onClick={() => props.mudaPagina("telaInicial")}>Voltar</button>
+        <BotaoPersonalizado onClick={() => props.mudaPagina("telaInicial")}>
+          Voltar
+        </BotaoPersonalizado>
       </HeaderContainer>
       <TelaUsuarioContainer>
         {matches.map((perfil) => {
