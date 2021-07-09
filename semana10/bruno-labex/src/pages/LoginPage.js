@@ -10,15 +10,6 @@ const LoginPageContainer = styled.div`
   padding: 0;
 `;
 
-const HeaderContainer = styled.div`
-  display: flex;
-  height: 10vh;
-  width: 100vw;
-  justify-content: space-around;
-  align-items: center;
-  background-color: silver;
-`;
-
 const LoginContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -28,23 +19,11 @@ const LoginContainer = styled.div`
   width: 100vw;
 `;
 
-const FooterContainer = styled.div`
-  display: flex;
-  height: 10vh;
-  width: 100vw;
-  justify-content: center;
-  align-items: center;
-  background-color: silver;
-`;
-
 function LoginPage() {
   return (
     <LoginPageContainer>
-      <HeaderContainer>
-        <button>Voltar</button>
-        <h1>LabeX</h1>
-      </HeaderContainer>
       <LoginContainer>
+        <button>Voltar</button>
         <h2>Faça seu login!</h2>
         <div>
           Login:
@@ -55,9 +34,6 @@ function LoginPage() {
           <input />
         </div>
       </LoginContainer>
-      <FooterContainer>
-        <h1>FOOTER</h1>
-      </FooterContainer>
     </LoginPageContainer>
   );
 }

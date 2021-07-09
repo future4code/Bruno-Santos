@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
+import { useEffect } from "react";
 
 const AdminHomePageContainer = styled.div`
   display: flex;
@@ -8,19 +11,6 @@ const AdminHomePageContainer = styled.div`
   width: 100vw;
   margin: 0;
   padding: 0;
-`;
-
-const HeaderContainer = styled.div`
-  display: flex;
-  height: 10vh;
-  width: 100vw;
-  justify-content: space-around;
-  align-items: center;
-  background-color: silver;
-`;
-
-const H1headerContainer = styled.h1`
-  margin-left: 120px;
 `;
 
 const MainContainer = styled.div`
@@ -39,31 +29,41 @@ const TripsListContainer = styled.div`
   border: solid black;
 `;
 
-const FooterContainer = styled.div`
-  display: flex;
-  height: 10vh;
-  width: 100vw;
-  justify-content: center;
-  align-items: center;
-  background-color: silver;
-`;
-
 function AdminHomePage() {
+  const [trip, setTrip] = useState();
+
+  const takeTrips = () => {
+    axios
+      .get(
+        "https://us-central1-labenu-apis.cloudfunctions.net/labeX/bruno-moreira-molina/trips"
+      )
+      .then((res) => {
+        console.log(res);
+        setTrip(res.data.trips);
+      })
+      .catch(() => {
+        alert("Erro!");
+      });
+  };
+
+  useEffect(() => {
+    takeTrips();
+  }, []);
+
+  const history = useHistory();
+
+  const goToCreateTripPage = () => {
+    history.push("/create");
+  };
+
   return (
     <AdminHomePageContainer>
-      <HeaderContainer>
-        <button>Voltar</button>
-        <H1headerContainer>LabeX</H1headerContainer>
-        <button>Crie uma nova viagem!!</button>
-      </HeaderContainer>
       <MainContainer>
+        <button onClick={goToCreateTripPage}>Crie uma nova viagem!!</button>
         <TripsListContainer>
           <h1>Painel Administrativo</h1>
         </TripsListContainer>
       </MainContainer>
-      <FooterContainer>
-        <h1>FOOTER</h1>
-      </FooterContainer>
     </AdminHomePageContainer>
   );
 }
