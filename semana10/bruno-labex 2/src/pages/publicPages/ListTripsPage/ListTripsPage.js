@@ -1,34 +1,25 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import GetListTripsPage from "./GetListTripsPage";
+import TripsCardPage from "./TripsCardPage";
 import { useHistory } from "react-router-dom";
-
-const ListTripsPageContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-`;
 
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 80vh;
   width: 100vw;
-  justify-content: space-around;
   align-items: center;
 `;
 
 const TripsListContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
   height: 60vh;
-  width: 60vw;
-  border: solid black;
+  width: 100vw;
+  align-items: center;
+  margin: 20px;
   overflow: auto;
 `;
 
@@ -60,19 +51,19 @@ function ListTripsPage() {
   };
 
   return (
-    <ListTripsPageContainer>
-      <MainContainer>
+    <MainContainer>
+      <div>
         <h2>LISTA DE VIAGENS</h2>
         <button onClick={goToApplicationFormPage}>
           Inscreva-se para uma viagem!!
         </button>
-        <TripsListContainer>
-          {trip.map((trips) => {
-            return <GetListTripsPage trips={trips} />;
-          })}
-        </TripsListContainer>
-      </MainContainer>
-    </ListTripsPageContainer>
+      </div>
+      <TripsListContainer>
+        {trip.map((trips) => {
+          return <TripsCardPage trips={trips} />;
+        })}
+      </TripsListContainer>
+    </MainContainer>
   );
 }
 

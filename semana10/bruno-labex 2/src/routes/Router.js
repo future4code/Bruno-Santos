@@ -1,11 +1,11 @@
 import React from "react";
 import HomePage from "../pages/HomePage";
-import ListTripsPage from "../pages/ListTripsPage/ListTripsPage";
-import ApplicationFormPage from "../pages/ListTripsPage/ApplicationFormPage";
-import LoginPage from "../pages/LoginPage";
-import AdminHomePage from "../pages/AdminHomePage/AdminHomePage";
-import CreateTripPage from "../pages/AdminHomePage/CreateTripPage";
-import TripDetailsPage from "../pages/AdminHomePage/TripDetailsPage";
+import ListTripsPage from "../pages/publicPages/ListTripsPage/ListTripsPage";
+import ApplicationFormPage from "../pages/publicPages/applicationFormPage/ApplicationFormPage";
+import LoginPage from "../pages/adminPages/loginPage/LoginPage";
+import AdminHomePage from "../pages/adminPages/adminHomePage/AdminHomePage";
+import CreateTripPage from "../pages/adminPages/createTripPage/CreateTripPage";
+import TripDetailsPage from "../pages/adminPages/tripDetailsPage/TripDetailsPage";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ErrorPage from "../pages/ErrorPage";
 import Header from "../components/Header";

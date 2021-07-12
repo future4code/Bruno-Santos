@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 const HomePageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 80vh;
   width: 100vw;
   justify-content: center;
   align-items: center;
@@ -25,8 +25,8 @@ function HomePage() {
     history.push("/trips");
   };
 
-  const goToAdminHomePage = () => {
-    history.push("/admin");
+  const goToLoginPage = () => {
+    history.push("/login");
   };
 
   return (
@@ -34,7 +34,7 @@ function HomePage() {
       <h1>LabeX</h1>
       <ButtonContainer>
         <button onClick={goToListTripsPage}>Lista de viagens</button>
-        <button onClick={goToAdminHomePage}>Área administrativa</button>
+        <button onClick={goToLoginPage}>Área administrativa</button>
       </ButtonContainer>
     </HomePageContainer>
   );

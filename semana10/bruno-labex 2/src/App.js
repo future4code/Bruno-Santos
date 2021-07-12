@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Router from "./route/Router";
+import Router from "./routes/Router";
 
 const GlobalContainer = styled.div`
   display: flex;
