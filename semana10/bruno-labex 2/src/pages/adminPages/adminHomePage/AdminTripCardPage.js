@@ -44,13 +44,13 @@ const AdminTripCardPage = (props) => {
     }
   };
 
-  const goToTripDetailsPage = () => {
-    history.push("/details");
+  const goToTripDetailsPage = (id) => {
+    history.push(`/details/${id}`);
   };
 
   return (
     <TripContainer>
-      <CardContainer onClick={() => goToTripDetailsPage(history, id)}>
+      <CardContainer onClick={() => goToTripDetailsPage(id)}>
         <p>{name}</p>
         <DeleteButton onClick={onClickDelete}>Deletar</DeleteButton>{" "}
       </CardContainer>

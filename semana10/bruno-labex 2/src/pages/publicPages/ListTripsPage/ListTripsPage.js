@@ -16,8 +16,8 @@ const TripsListContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
-  height: 60vh;
-  width: 100vw;
+  height: 70vh;
+  width: 80vw;
   align-items: center;
   margin: 20px;
   overflow: auto;

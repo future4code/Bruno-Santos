@@ -4,12 +4,19 @@ import styled from "styled-components";
 
 const ButtonsContainer = styled.div`
   display: flex;
-  height: 200px;
+  height: 50px;
   width: 400px;
   justify-content: space-around;
 `;
 
-const CandidateCard = (props) => {
+const ButtonsStyle = styled.button`
+  &:hover {
+    cursor: pointer;
+    background-color: silver;
+  }
+`;
+
+const CandidateCardPage = (props) => {
   const { id, applicationText, profession, age, name, country } =
     props.candidate;
 
@@ -35,11 +42,11 @@ const CandidateCard = (props) => {
         <b>Texto de Candidatura:</b> {applicationText}
       </p>
       <ButtonsContainer>
-        <button onClick={() => decide(true)}>Aceitar</button>
-        <button onClick={() => decide(false)}>Rejeitar</button>
+        <ButtonsStyle onClick={() => decide(true)}>Aceitar</ButtonsStyle>
+        <ButtonsStyle onClick={() => decide(false)}>Rejeitar</ButtonsStyle>
       </ButtonsContainer>
     </div>
   );
 };
 
-export default CandidateCard;
+export default CandidateCardPage;

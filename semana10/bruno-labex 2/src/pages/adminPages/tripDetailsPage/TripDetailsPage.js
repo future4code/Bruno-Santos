@@ -40,7 +40,6 @@ const CardApplicationContainer = styled.div`
   flex-direction: column;
   height: 300px;
   width: 400px;
-  border: solid;
   padding: 10px;
 `;
 
@@ -49,7 +48,6 @@ const CardApprovedContainer = styled.div`
   flex-direction: column;
   height: 50px;
   width: 200px;
-  border: solid;
   padding: 10px;
 `;
 
