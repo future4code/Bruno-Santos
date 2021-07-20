@@ -1,18 +1,13 @@
+import ThemeProvider from "@material-ui/styles/ThemeProvider";
 import React from "react";
-import styled from "styled-components";
-
-const AppContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-`;
+import theme from "./constants/theme";
+import Router from "./routes/Router";
 
 function App() {
   return (
-    <AppContainer>
-      <h1>LabEddit</h1>
-    </AppContainer>
+    <ThemeProvider theme={theme}>
+      <Router />
+    </ThemeProvider>
   );
 }
 
