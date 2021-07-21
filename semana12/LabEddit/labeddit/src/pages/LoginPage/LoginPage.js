@@ -1,20 +1,22 @@
 import { Button } from "@material-ui/core";
 import React from "react";
-import { LoginContainer, LogoImage } from "./styled";
+import { LoginContainer, LoginImage } from "./styled";
 import LoginForm from "./LoginForm";
 import { useHistory } from "react-router-dom";
 import { goToSignUp } from "../../routes/coordinator";
+import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 
-function LoginPage() {
+function LoginPage({ setRightButtonText }) {
+  useUnprotectedPage();
   const history = useHistory();
   return (
     <LoginContainer>
-      <LogoImage
+      <LoginImage
         src={
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgs3lHvCogtiBrh0B_HvY1PHbEaRc6hpp5gg&usqp=CAU"
         }
       />
-      <LoginForm />
+      <LoginForm setRightButtonText={setRightButtonText} />
       <Button
         type={"submit"}
         fullWidth

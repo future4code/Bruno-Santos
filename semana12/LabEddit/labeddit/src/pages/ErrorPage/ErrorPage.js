@@ -1,10 +1,15 @@
 import React from "react";
+import { ErrorImage, ErrorPageContainer } from "./styled";
 
 function ErrorPage() {
   return (
-    <div>
-      <h1>ErrorPage</h1>
-    </div>
+    <ErrorPageContainer>
+      <ErrorImage
+        src={
+          "https://cdn.netlify.com/1c9c8c01b0e5efecef2bfa5c1d72e1fbf57aaf38/f35fd/img/blog/the404.png"
+        }
+      />
+    </ErrorPageContainer>
   );
 }
 

@@ -1,12 +1,10 @@
-import { Button } from "@material-ui/core";
 import React from "react";
 import { SignUpContainer, SignUpImage } from "./styled";
 import SignUpForm from "./SignUpForm";
-import { useHistory } from "react-router-dom";
-import { goToLogin } from "../../routes/coordinator";
+import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 
-function SingUpPage() {
-  const history = useHistory();
+function SingUpPage({ setRightButtonText }) {
+  useUnprotectedPage();
   return (
     <SignUpContainer>
       <SignUpImage
@@ -14,16 +12,7 @@ function SingUpPage() {
           "https://files.cercomp.ufg.br/weby/up/393/o/cadastre-se.jpg?1400766482"
         }
       />
-      <SignUpForm />
-      <Button
-        type={"submit"}
-        fullWidth
-        variant={"text"}
-        color={"primary"}
-        onClick={() => goToLogin(history)}
-      >
-        Fazer Login!
-      </Button>
+      <SignUpForm setRightButtonText={setRightButtonText} />
     </SignUpContainer>
   );
 }

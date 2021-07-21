@@ -13,14 +13,14 @@ export const SignUpFormContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 40vh;
-  width: 100vw;
+  width: 40vw;
   justify-content: center;
   align-items: center;
 `;
 
 export const SignUpImage = styled.img`
-  width: 30vw;
+  width: 40vw;
   max-width: 60vw;
   height: 40vh;
-  margin-top: 100px;
+  margin: 100px;
 `;

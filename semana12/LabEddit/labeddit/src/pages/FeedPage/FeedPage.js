@@ -1,9 +1,16 @@
 import React from "react";
+import useProtectedPage from "../../hooks/useProtectedPage";
+import FeedCard from "../../components/FeedCard/FeedCard";
 
 function FeedPage() {
+  useProtectedPage();
   return (
     <div>
-      <h1>FeedPage</h1>
+      <FeedCard />
+      <FeedCard />
+      <FeedCard />
+      <FeedCard />
+      <FeedCard />
     </div>
   );
 }

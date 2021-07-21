@@ -13,12 +13,12 @@ export const LoginFormContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 40vh;
-  width: 100vw;
+  width: 40vw;
   justify-content: center;
   align-items: center;
 `;
 
-export const LogoImage = styled.img`
+export const LoginImage = styled.img`
   width: 30vw;
   max-width: 60vw;
   height: 40vh;
