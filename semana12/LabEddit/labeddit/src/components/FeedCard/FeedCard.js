@@ -10,7 +10,8 @@ import {
   CardFooter,
   LikeImage,
 } from "./styled";
-import LikeButton from "../../assets/LikeButton.png";
+import LessButton from "../../assets/LessButton.png";
+import PlusButton from "../../assets/PlusButton.png";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -41,7 +42,10 @@ function FeedCard() {
             </Typography>
           </CardContent>
           <CardFooter>
-            <LikeImage src={LikeButton} />
+            <div>
+              <LikeImage src={PlusButton} />
+              <LikeImage src={LessButton} />
+            </div>
             <p>Comentários</p>
           </CardFooter>
         </BackColor>

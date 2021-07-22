@@ -21,7 +21,7 @@ export const CardHeader = styled.div`
 export const CardFooter = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
 `;
 
 export const BackColor = styled.div`
@@ -29,7 +29,12 @@ export const BackColor = styled.div`
 `;
 
 export const LikeImage = styled.img`
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   color: #66ff33;
+`;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
