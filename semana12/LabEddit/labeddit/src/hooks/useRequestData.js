@@ -8,17 +8,15 @@ const useRequestData = (initialData, url) => {
     axios
       .get(url, {
         headers: {
-          "Content-Type": "application/json",
           Authorization: localStorage.getItem("token"),
         },
       })
       .then((response) => {
-        console.log(response);
-        // setData(response.data);
+        setData(response.data);
       })
       .catch((error) => {
         console.log(error);
-        // alert("Ocorreu um erro, tente novamente");
+        alert("Ocorreu um erro, tente novamente");
       });
   }, [url]);
 

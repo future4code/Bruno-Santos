@@ -18,7 +18,7 @@ function Router({ setRightButtonText }) {
       <Route exact path="/">
         <FeedPage />
       </Route>
-      <Route exact path="/post">
+      <Route exact path="/post/:id/comments">
         <PostPage />
       </Route>
       <Route>

@@ -1,15 +1,15 @@
 export const goToLogin = (history) => {
-  history.push("./login");
+  history.push("/login");
 };
 
 export const goToSignUp = (history) => {
-  history.push("./cadastro");
+  history.push("/cadastro");
 };
 
 export const goToFeed = (history) => {
-  history.push("./");
+  history.push("/");
 };
 
-export const goToPost = (history) => {
-  history.push("./post");
+export const goToPost = (id, history) => {
+  history.push(`/post/${id}/comments`);
 };

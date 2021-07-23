@@ -1,28 +1,29 @@
 import React from "react";
 import useProtectedPage from "../../hooks/useProtectedPage";
-import FeedCard from "../../components/FeedCard/FeedCard";
-import { useHistory } from "react-router-dom";
+import PostCard from "../../components/FeedCard/PostCard";
 import useRequestData from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/urls";
+import { FeedPageContainer } from "./styled";
 
 function FeedPage() {
   useProtectedPage();
-  const history = useHistory();
   const posts = useRequestData([], `${BASE_URL}/posts`);
 
-  const postsCard = posts.map((post) => {
-    return <FeedCard />;
+  const postCards = posts.map((post) => {
+    return (
+      <PostCard
+        id={post.id}
+        username={post.username}
+        title={post.title}
+        body={post.body}
+        voteSum={post.voteSum}
+        commentCount={post.commentCount}
+        userVote={post.userVote}
+      />
+    );
   });
 
-  return (
-    <div>
-      <FeedCard />
-      <FeedCard />
-      <FeedCard />
-      <FeedCard />
-      <FeedCard />
-    </div>
-  );
+  return <FeedPageContainer>{postCards}</FeedPageContainer>;
 }
 
 export default FeedPage;
