@@ -11,13 +11,15 @@ export const createPost = (body, clear) => {
       },
     })
     .then((res) => {
-      alert(res.data.message);
+      // alert(res.data.message);
+      console.log(res);
       clear();
       // setIsLoading(false);
     })
     .catch((err) => {
-      alert(err.response.message);
+      // alert(err.response.message);
       // setIsLoading(false);
+      console.log(err);
     });
 };
 

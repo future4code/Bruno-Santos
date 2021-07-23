@@ -4,7 +4,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import {
-  FeedCardContainer,
+  CardContainer,
   CardHeader,
   BackColor,
   CardFooter,
@@ -21,8 +21,7 @@ import { createPostVote } from "../../services/posts";
 const useStyles = makeStyles(() => ({
   root: {
     width: 500,
-    maxHeight: 400,
-    minHeight: 200,
+    Height: 400,
   },
   media: {
     height: 0,
@@ -48,7 +47,7 @@ function PostCard(props) {
   };
 
   return (
-    <FeedCardContainer>
+    <CardContainer>
       <Card className={classes.root}>
         <CardHeader>
           <h3>{props.username}</h3>
@@ -86,7 +85,7 @@ function PostCard(props) {
           </CommentsContainer>
         </CardFooter>
       </Card>
-    </FeedCardContainer>
+    </CardContainer>
   );
 }
 

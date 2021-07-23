@@ -1,10 +1,8 @@
 import styled from "styled-components";
 
-export const FeedCardContainer = styled.div`
+export const CardContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* flex-direction: column; */
   margin: 20px;
 `;
 
@@ -26,6 +24,7 @@ export const CardFooter = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 70px;
+  overflow: auto;
 `;
 
 export const BackColor = styled.div`

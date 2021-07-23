@@ -1,9 +1,10 @@
 import React from "react";
 import useProtectedPage from "../../hooks/useProtectedPage";
-import PostCard from "../../components/FeedCard/PostCard";
+import PostCard from "../../components/PostCard/PostCard";
 import useRequestData from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/urls";
-import { FeedPageContainer } from "./styled";
+import { CreatPostContainer, FeedPageContainer, FeedContainer } from "./styled";
+import CreatePostCard from "../../components/CreatePostCard/CreatePostCard";
 
 function FeedPage() {
   useProtectedPage();
@@ -23,7 +24,14 @@ function FeedPage() {
     );
   });
 
-  return <FeedPageContainer>{postCards}</FeedPageContainer>;
+  return (
+    <FeedPageContainer>
+      <CreatPostContainer>
+        <CreatePostCard />
+      </CreatPostContainer>
+      <FeedContainer>{postCards}</FeedContainer>
+    </FeedPageContainer>
+  );
 }
 
 export default FeedPage;
