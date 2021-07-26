@@ -8,6 +8,7 @@ import CreatePostCard from "../../components/CreatePostCard/CreatePostCard";
 
 function FeedPage() {
   useProtectedPage();
+
   const posts = useRequestData([], `${BASE_URL}/posts`);
 
   const postCards = posts.map((post) => {
@@ -27,7 +28,7 @@ function FeedPage() {
   return (
     <FeedPageContainer>
       <CreatPostContainer>
-        <CreatePostCard />
+        <CreatePostCard postCards={postCards} />
       </CreatPostContainer>
       <FeedContainer>{postCards}</FeedContainer>
     </FeedPageContainer>

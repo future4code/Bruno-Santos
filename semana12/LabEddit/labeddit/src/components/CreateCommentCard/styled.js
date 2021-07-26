@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CreatePostCardContainer = styled.div`
+export const CreateCommentCardContainer = styled.div`
   margin: 20px;
 `;
 

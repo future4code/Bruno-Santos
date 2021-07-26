@@ -24,11 +24,11 @@ export const CardFooter = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  overflow: auto;
 `;
 
 export const BackColor = styled.div`
   background-color: #79ff4d;
+  cursor: pointer;
 `;
 
 export const LikeImage = styled.img`
@@ -42,12 +42,4 @@ export const ButtonsContainer = styled.div`
   justify-content: space-around;
   width: 180px;
   margin-left: 20px;
-`;
-
-export const CommentsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 150px;
-  margin-right: 20px;
 `;

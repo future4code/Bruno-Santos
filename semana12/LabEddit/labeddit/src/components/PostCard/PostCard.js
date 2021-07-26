@@ -10,13 +10,12 @@ import {
   CardFooter,
   LikeImage,
   ButtonsContainer,
-  CommentsContainer,
 } from "./styled";
 import LessButton from "../../assets/LessButton.png";
 import PlusButton from "../../assets/PlusButton.png";
 import { goToPost } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
-import { createPostVote } from "../../services/posts";
+import { changePostVote, createPostVote } from "../../services/votes";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -30,62 +29,64 @@ const useStyles = makeStyles(() => ({
 }));
 
 function PostCard(props) {
-  const voteSum = parseInt(props.voteSum, 10);
-  const [votes, setVotes] = useState(voteSum);
+  // const voteSum = parseInt(props.voteSum, 10);
+  // const [votes, setVotes] = useState(voteSum);
   const classes = useStyles();
   const history = useHistory();
 
   const onClickUp = () => {
     const id = props.id;
-    const body = {
+    let body = {
       direction: 1,
     };
     createPostVote(body, id);
-    setVotes((x) => {
-      return x + 1;
-    });
+    // setVotes((x) => {
+    //   return x + 1;
+    // });
+  };
+
+  const onClickDown = () => {
+    const id = props.id;
+    let body = {
+      direction: -1,
+    };
+    changePostVote(body, id);
   };
 
   return (
-    <CardContainer>
-      <Card className={classes.root}>
-        <CardHeader>
-          <h3>{props.username}</h3>
-        </CardHeader>
-        <BackColor>
-          <CardContent
-            color={"green"}
-            onClick={() => goToPost(props.id, history)}
-          >
-            <h4>{props.title}</h4>
-            <Typography variant="body2" color="primary" component="p">
-              {props.body}
-            </Typography>
-          </CardContent>
-        </BackColor>
-        <CardFooter>
-          <ButtonsContainer>
-            <button onClick={onClickUp}>
-              <LikeImage src={PlusButton} />
-            </button>
-            <p>{votes}</p>
-            <button>
-              <LikeImage src={LessButton} />
-            </button>
-          </ButtonsContainer>
-          <CommentsContainer>
+    <div>
+      <CardContainer>
+        <Card className={classes.root}>
+          <CardHeader>
+            <h3>{props.username}</h3>
+          </CardHeader>
+          <BackColor>
+            <CardContent
+              color={"green"}
+              onClick={() => goToPost(props.id, history)}
+            >
+              <h4>{props.title}</h4>
+              <Typography variant="body2" color="primary" component="p">
+                {props.body}
+              </Typography>
+            </CardContent>
+          </BackColor>
+          <CardFooter>
+            <ButtonsContainer>
+              <button onClick={onClickUp}>
+                <LikeImage src={PlusButton} />
+              </button>
+              <p>{props.voteSum}</p>
+              <button onClick={onClickDown}>
+                <LikeImage src={LessButton} />
+              </button>
+            </ButtonsContainer>
             <p>Comentários</p>
-            <p>
-              {props.comments &&
-                props.comments.map((comment) => {
-                  return <p>{comment.body}</p>;
-                })}
-            </p>
             <p>{props.commentCount}</p>
-          </CommentsContainer>
-        </CardFooter>
-      </Card>
-    </CardContainer>
+          </CardFooter>
+        </Card>
+      </CardContainer>
+    </div>
   );
 }
 
