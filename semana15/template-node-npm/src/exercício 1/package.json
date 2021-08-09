@@ -1,0 +1,12 @@
+{
+  "name": "template-node-npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "exercicioUm.js",
+  "scripts": {
+    "start": "node exercicioUm.js"
+  },
+  "keywords": [],
+  "author": "Bruno",
+  "license": "ISC"
+}

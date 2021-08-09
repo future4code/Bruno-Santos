@@ -1,0 +1,12 @@
+{
+  "name": "template-node-npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "exercicioDois.js",
+  "scripts": {
+    "start": "node exercicioDois.js"
+  },
+  "keywords": [],
+  "author": "Bruno",
+  "license": "ISC"
+}

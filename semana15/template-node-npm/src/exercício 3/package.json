@@ -1,0 +1,12 @@
+{
+  "name": "template-node-npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "exercicioTres.js",
+  "scripts": {
+    "start": "node exercicioTres.js"
+  },
+  "keywords": [],
+  "author": "Bruno",
+  "license": "ISC"
+}
