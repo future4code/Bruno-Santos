@@ -48,3 +48,15 @@ type Estatisticas = {
     return estatisticas
   }
 
+  // C) 
+
+  type AmostraDeIdades = {
+      numeros: number[],
+      obterEstatisticas: (number: number[]) => Estatisticas
+  }
+
+  const amostraDeIdades: AmostraDeIdades = {
+      numeros: [21, 18, 65, 44, 15, 18],
+      obterEstatisticas
+  }
+
