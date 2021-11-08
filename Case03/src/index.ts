@@ -1,11 +1,16 @@
-import express, {Express} from 'express'
+import express, {Express, request} from 'express'
 import cors from 'cors'
 import { AddressInfo } from "net";
+import { CompetitionController } from './controller/CompetitionController';
 
 const app: Express = express();
 
 app.use(express.json());
 app.use(cors());
+
+const competitionController = new CompetitionController()
+
+app.post("/competition/create", (req, res) => competitionController.createCompetition(req, res))
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
