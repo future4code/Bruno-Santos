@@ -1,5 +1,5 @@
 import { CompetitionDatabase } from "../data/CompetitionDatabase";
-import { Competition, CompetitionDTO, UpdateCompetition } from "./entities/Competition";
+import { Competition, CompetitionDTO, ResultsCompetition, UpdateCompetition } from "./entities/Competition";
 import { IdGenerator } from "./services/IdGenerator";
 
 export class CompetitionBusiness {
@@ -37,11 +37,26 @@ export class CompetitionBusiness {
             }
             
             await new CompetitionDatabase().updateCompetition(updateCompetitionModel)
-            console.log("BUSINESS - UPDATE")
             
         } catch (error: any) {
             throw new Error(error.message)
         }
-
     }
 }
+
+//     async getResultsFromCompetition(resultsCompetition: ResultsCompetition) {
+
+//         try {
+
+//             const resultsCompetitionModel: ResultsCompetition = {
+//                 competitionId: resultsCompetition.competitionId
+//             }
+
+//             const results = await new CompetitionDatabase().getResultsFromCompetition(resultsCompetitionModel)
+
+//         } catch (error: any) {
+//             throw new Error(error.message)
+//         }
+
+//     }
+// 

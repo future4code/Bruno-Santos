@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import { Competition, UpdateCompetition } from "../business/entities/Competition";
+import { Competition, ResultsCompetition, UpdateCompetition } from "../business/entities/Competition";
+import { CompetitionController } from "../controller/CompetitionController";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class CompetitionDatabase extends BaseDatabase {
@@ -26,6 +27,33 @@ export class CompetitionDatabase extends BaseDatabase {
             SET status = ${updateCompetitionModel.status}
             WHERE id = "${updateCompetitionModel.id}"
         `)
+
+        } catch (error: any) {
+            throw new Error(error.sqlMessage || error.message)
+        }
+    }
+
+    async getResultsFromCompetition(req: Request, res: Response) {
+
+        try {
+
+            const input: ResultsCompetition = {
+                competitionId: req.body.competitionId
+            } 
+
+            const queryResponse = await BaseDatabase.connection.raw(`
+                SELECT name, value FROM ATHLETE
+                WHERE competitionId = "${input.competitionId}"
+                ORDER BY value DESC
+            `)
+
+            const results = queryResponse[0]
+
+            if(!results) {
+                return null
+            }
+
+            res.status(200).send(results)
 
         } catch (error: any) {
             throw new Error(error.sqlMessage || error.message)

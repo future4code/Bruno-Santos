@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { CompetitionBusiness } from "../business/CompetitionBusiness";
-import { CompetitionDTO, UpdateCompetition } from "../business/entities/Competition";
+import { CompetitionDTO, ResultsCompetition, UpdateCompetition } from "../business/entities/Competition";
 
 
 export class CompetitionController {
@@ -12,6 +12,10 @@ export class CompetitionController {
             const competitionDTO: CompetitionDTO = {
                 name: request.body.name,
                 status: request.body.status
+            }
+
+            if(!competitionDTO.name || !competitionDTO.status) {
+                throw new Error("Algum parâmetro está faltando!")
             }
 
             await new CompetitionBusiness().createCompetition(competitionDTO)
@@ -34,9 +38,8 @@ export class CompetitionController {
                 id: req.body.id,
                 status: req.body.status
             }
-            console.log("CONTROLLER 1 - UPDATE")
+        
             await new CompetitionBusiness().updateCompetition(updateCompetition)
-            console.log("CONTROLLER 2- UPDATE")
             
             res.status(200).send("Status da competição atualizado com sucesso!!")
 
@@ -46,7 +49,31 @@ export class CompetitionController {
 
             res.send({message})
         }
-
     }
-
 }
+
+//     async getResultsFromCompetition(req: Request, res: Response) {
+
+//         try {
+
+//             const resultsCompetition: ResultsCompetition = {
+//                 competitionId: req.body.competitionId
+//             }
+
+//             await new CompetitionBusiness().getResultsFromCompetition(resultsCompetition)
+
+//             res.status(200).send("Ta foda!")
+
+//         } catch (error: any) {
+//             let message = error.sqlMessage || error.message
+//             res.statusCode = 400
+
+//             res.send({message})
+//         }
+//     }
+
+// }
+
+// function results(results: any, any: any) {
+//     throw new Error("Function not implemented.");
+// 

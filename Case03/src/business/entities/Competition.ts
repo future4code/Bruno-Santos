@@ -13,3 +13,7 @@ export interface UpdateCompetition {
     id: string,
     status: number
 }
+
+export interface ResultsCompetition {
+    competitionId: string
+}
