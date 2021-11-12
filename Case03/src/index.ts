@@ -13,8 +13,10 @@ const competitionController = new CompetitionController()
 const athleteController = new AthleteController()
 
 app.post("/competition/create", (req, res) => competitionController.createCompetition(req, res))
+app.put("/competition/update", (req, res) => competitionController.updateCompetition(req, res))
+console.log("INDEX - UPDATE")
+
 app.post("/athlete/create", (req, res) => athleteController.createAthlete(req, res))
-console.log("ATLETA - INDEX")
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {

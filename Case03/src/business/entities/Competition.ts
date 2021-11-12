@@ -8,3 +8,8 @@ export interface CompetitionDTO {
     name: string,
     status: number
 }
+
+export interface UpdateCompetition {
+    id: string,
+    status: number
+}

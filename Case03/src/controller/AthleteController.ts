@@ -16,7 +16,6 @@ export class AthleteController {
             if (!athleteDTO.name || !athleteDTO.value || !athleteDTO.unity || !athleteDTO.competitionId) {
                 throw new Error("Algum parâmetro faltando!")
             }
-            console.log("ATLETA - CONTROLLER")
             
             await new AthleteBusiness().createAthlete(athleteDTO)
             
