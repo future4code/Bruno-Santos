@@ -10,10 +10,8 @@ export class CompetitionController {
         try {
 
             const competitionDTO: CompetitionDTO = {
-                competition: request.body.competition,
-                athlete: request.body.athlete,
-                value: request.body.value,
-                unity: request.body.unity
+                name: request.body.name,
+                status: request.body.status
             }
 
             await new CompetitionBusiness().createCompetition(competitionDTO)

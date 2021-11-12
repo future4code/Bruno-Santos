@@ -1,14 +1,10 @@
 export interface Competition {
     id: string,
-    competition: string,
-    athlete: string,
-    value: string,
-    unity: string
+    name: string,
+    status: number
 }
 
 export interface CompetitionDTO {
-    competition: string,
-    athlete: string,
-    value: string,
-    unity: string
+    name: string,
+    status: number
 }

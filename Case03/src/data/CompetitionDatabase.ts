@@ -7,12 +7,10 @@ export class CompetitionDatabase extends BaseDatabase {
 
         try {
 
-            await BaseDatabase.connection("OLYMPIC_COMPETITION").insert({
+            await BaseDatabase.connection("COMPETITION").insert({
                 id: competition.id,
-                competition: competition.competition,
-                athlete: competition.athlete,
-                value: competition.value,
-                unity: competition.unity
+                name: competition.name,
+                status: competition.status
             })
 
         } catch (error: any) {
